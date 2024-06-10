@@ -1,46 +1,48 @@
-import classes from './Counter.module.css';
-import { useSelector, useDispatch, connect } from 'react-redux';
-import { Component } from 'react';
-
+import classes from "./Counter.module.css";
+import { useSelector, useDispatch, connect } from "react-redux";
+import { Component } from "react";
 
 const Counter = () => {
-
   const dispatch = useDispatch();
-  const state = useSelector(state => state);
+  const state = useSelector((state) => state);
 
   const incrementHandler = () => {
-    dispatch({type: "increment"})
+    dispatch({ type: "increment" });
   };
 
   const increaseHandler = (number) => {
-    dispatch({type: "increase", amount:number})
-  }
+    dispatch({ type: "increase", amount: number });
+  };
 
   const decrementHandler = () => {
-    dispatch({type: "decrement"})
+    dispatch({ type: "decrement" });
   };
 
   const toggleCounterHandler = () => {
-    dispatch({type:'visibility'})
+    dispatch({ type: "visibility" });
   };
 
   return (
     <main className={classes.counter}>
       <h1>Redux Counter</h1>
-      {state.showCounter ?  <div className={classes.value}>{state.counter}</div> : <h2>Press toggle counter button to show counter</h2>}
+      {state.showCounter ? (
+        <div className={classes.value}>{state.counter}</div>
+      ) : (
+        <h2>Press toggle counter button to show counter</h2>
+      )}
       <div>
-      <button onClick={incrementHandler}>Increment</button>
-      <button onClick={() => increaseHandler(5)}>Increse by 5</button>
-      <button onClick={decrementHandler}>Decrement</button>
+        <button onClick={incrementHandler}>Increment</button>
+        <button onClick={() => increaseHandler(5)}>Increse by 5</button>
+        <button onClick={decrementHandler}>Decrement</button>
       </div>
       <button onClick={toggleCounterHandler}>Toggle Counter</button>
     </main>
   );
 };
 
-export default Counter
+export default Counter;
 
-//Class based component 
+//Class based component
 
 // class Counter extends Component{
 
@@ -51,7 +53,7 @@ export default Counter
 //     this.props.decrement();
 //   }
 //   toggleCounterHandler(){
-    
+
 //   }
 
 //   render(){
